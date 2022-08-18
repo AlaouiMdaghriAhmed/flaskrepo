@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Data Manager</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Choose a Data to work on </h1>
+    {% if datas|length < 1 %}
+    <h4 style="text-align: center">There is no Data here. Add one !</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Action</th>
+        </tr>
+        {% for data in datas %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.content }}</td>
+                <td>
+                    <a href="/delete/{{data.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{ data.id }}">Choose</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <div class="form">
+        <form action = "/uploader" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form>
+    </div>
+</div>
+{% endblock %}

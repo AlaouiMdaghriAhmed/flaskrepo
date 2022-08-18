@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Choose a column to work on </title>
+{% endblock %}
+
+{% block body %}
+<table>
+
+        
+        {% for table in tables %}
+            {% for title in titles %}
+                <th><a href="/filter/{{id}}/{{titles[loop.index0]}}">{{titles[loop.index0]}}</a></th>
+            {% endfor %}
+            {{ table|safe  }}
+        {% endfor %}
+
+            
+</table>
+
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <div class="form">
+        <form action="/filter/{{id}}/{{column}}" method="POST">
+            <input type="text" name="query" id="query">
+            
+        
+        
+            
+            <input type="submit" value="filter_request">
+        </form>
+    </div>
+</div>
+{% endblock %}
